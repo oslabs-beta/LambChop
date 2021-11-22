@@ -3,9 +3,8 @@ import React from 'react';
 const Main = () => {
   return (
     <div className="main">
-      <h1>Hello!</h1>
-
-      <p>I hope this boilerplate helps you.</p>
+      <h1>LambChop!</h1>
+      <p>Lets.. Fucking... Go...</p>
     </div>
   );
 };

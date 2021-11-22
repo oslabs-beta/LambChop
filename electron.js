@@ -1,7 +1,9 @@
 'use strict';
 
 // Import parts of electron to use
-const { app, BrowserWindow, shell } = require('electron');
+const electron = require('electron');
+const { app, BrowserWindow, shell } = electron;
+// const { app, BrowserWindow, shell } = require('electron');
 const path = require('path');
 const url = require('url');
 
@@ -32,6 +34,8 @@ function createWindow() {
     width: 1024,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
     },
   });
 

@@ -14,11 +14,11 @@ module.exports = {
         use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }],
         include: defaultInclude,
       },
-      {
-        test: /\.jsx?$/,
-        use: [{ loader: 'babel-loader' }],
-        include: defaultInclude,
-      },
+      // {
+      //   test: /\.jsx?$/,
+      //   use: [{ loader: 'babel-loader' }],
+      //   include: defaultInclude,
+      // },
       {
         test: /\.(jpe?g|png|gif)$/,
         use: [{ loader: 'file-loader?name=img/[name]__[hash:base64:5].[ext]' }],
@@ -29,11 +29,27 @@ module.exports = {
         use: [{ loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }],
         include: defaultInclude,
       },
+      // {
+      //   test: /\.tsx?$/,
+      //   include: path.resolve(__dirname, 'src'),
+      //   loader: 'ts-loader',
+      // },
+      {
+        test: /\.(js|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
     ],
+  },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: ['.ts', '.tsx', '.js'],
   },
   target: 'electron-renderer',
   plugins: [
-    new HtmlWebpackPlugin({ title: 'New app title' }),
+    new HtmlWebpackPlugin({ title: 'LambChop' }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),

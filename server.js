@@ -10,10 +10,6 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 server.use(express.static(path.join(__dirname, 'public')));
 
-const dummy = require('./src/server/routes/dummy');
-
-server.use('/api/dummy', dummy);
-
 server.listen(process.env.PORT || 5000, () => {
-  console.log('Server is ON.');
+  console.log(`SERVER IS LISTENING ON PORT ${process.env.PORT} AT ${new Date}`);
 });

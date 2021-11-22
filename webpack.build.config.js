@@ -29,7 +29,12 @@ module.exports = {
         use: [{ loader: 'file-loader?name=font/[name]__[hash:base64:5].[ext]' }],
         include: defaultInclude,
       },
+      { test: /\.tsx?$/, loader: 'ts-loader' },
     ],
+  },
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: ['.ts', '.tsx', '.js'],
   },
   target: 'electron-renderer',
   plugins: [
